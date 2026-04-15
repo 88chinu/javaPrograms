@@ -1,0 +1,53 @@
+package Pack1;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Colorchanger implements ActionListener {
+    JFrame frame;
+    JLabel label;
+    JButton btnRed, btnGreen, btnBlue;
+
+    Colorchanger() {
+        frame = new JFrame("Chnage Color"); // Matching PDF typo [cite: 7]
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        label = new JLabel("Click on a button to change the frame color");
+        label.setBounds(20, 20, 300, 25);
+        frame.add(label);
+
+        btnRed = new JButton("Red");
+        btnRed.setBounds(20, 60, 80, 30);
+        btnRed.addActionListener(this);
+        frame.add(btnRed);
+
+        btnGreen = new JButton("Green");
+        btnGreen.setBounds(110, 60, 80, 30);
+        btnGreen.addActionListener(this);
+        frame.add(btnGreen);
+
+        btnBlue = new JButton("Blue");
+        btnBlue.setBounds(200, 60, 80, 30);
+        btnBlue.addActionListener(this);
+        frame.add(btnBlue);
+
+        frame.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        // getContentPane() is used to change the background of a JFrame
+        if (ae.getSource() == btnRed) {
+            frame.getContentPane().setBackground(Color.RED);
+        } else if (ae.getSource() == btnGreen) {
+            frame.getContentPane().setBackground(Color.GREEN);
+        } else if (ae.getSource() == btnBlue) {
+            frame.getContentPane().setBackground(Color.BLUE);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Colorchanger();
+    }
+}

@@ -1,0 +1,53 @@
+package Pack1;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Prog2 implements ActionListener {
+    JFrame frame;
+    JLabel l1, lMessage;
+    JTextField tfName;
+    JButton btnClick;
+
+    Prog2() {
+        frame = new JFrame("Welcome");
+        frame.setSize(300, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        l1 = new JLabel("Enter your name");
+        l1.setBounds(50, 50, 150, 20);
+        frame.add(l1);
+
+        tfName = new JTextField();
+        tfName.setBounds(50, 80, 200, 30);
+        frame.add(tfName);
+
+        btnClick = new JButton("Click");
+        btnClick.setBounds(50, 130, 80, 30);
+        btnClick.addActionListener(this);
+        frame.add(btnClick);
+
+        lMessage = new JLabel("Message");
+        lMessage.setBounds(50, 180, 200, 20);
+        frame.add(lMessage);
+
+        frame.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        String name = tfName.getText().trim();
+        
+        if (!name.isEmpty()) {
+            lMessage.setText("Welcome " + name);
+            lMessage.setForeground(Color.GREEN);
+        } else {
+            lMessage.setText("Please enter your name");
+            lMessage.setForeground(Color.RED);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Prog2();
+    }
+}

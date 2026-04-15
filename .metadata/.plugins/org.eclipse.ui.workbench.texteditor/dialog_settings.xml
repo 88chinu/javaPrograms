@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="replacehistory">
+			<item value="Prog3"/>
+			<item value="Prog2"/>
+		</list>
+		<list key="findhistory">
+			<item value="SimpleCalculator"/>
+			<item value="package pack1"/>
+			<item value="WelcomeApp"/>
+		</list>
+	</section>
+</section>

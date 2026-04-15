@@ -1,0 +1,83 @@
+package Pack1;
+import javax.swing.*;
+//import java.awt.*;
+import java.awt.event.*;
+
+public class Prog3 implements ActionListener {
+    JFrame frame;
+    JLabel l1, l2, lResult;
+    JTextField tf1, tf2;
+    JButton btnAdd, btnSub, btnMul, btnDiv;
+
+    Prog3() {
+        frame = new JFrame("Simple Calculator");
+        frame.setSize(350, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        l1 = new JLabel("Enter First Number");
+        l1.setBounds(50, 30, 150, 20);
+        frame.add(l1);
+
+        tf1 = new JTextField();
+        tf1.setBounds(50, 55, 200, 30);
+        frame.add(tf1);
+
+        l2 = new JLabel("Enter Second Number");
+        l2.setBounds(50, 100, 150, 20);
+        frame.add(l2);
+
+        tf2 = new JTextField();
+        tf2.setBounds(50, 125, 200, 30);
+        frame.add(tf2);
+
+        btnAdd = new JButton("+");
+        btnAdd.setBounds(50, 170, 50, 30);
+        btnAdd.addActionListener(this);
+        frame.add(btnAdd);
+
+        btnSub = new JButton("-");
+        btnSub.setBounds(110, 170, 50, 30);
+        btnSub.addActionListener(this);
+        frame.add(btnSub);
+
+        btnMul = new JButton("*");
+        btnMul.setBounds(170, 170, 50, 30);
+        btnMul.addActionListener(this);
+        frame.add(btnMul);
+
+        btnDiv = new JButton("/");
+        btnDiv.setBounds(230, 170, 50, 30);
+        btnDiv.addActionListener(this);
+        frame.add(btnDiv);
+
+        lResult = new JLabel("Result");
+        lResult.setBounds(50, 220, 200, 20);
+        frame.add(lResult);
+        frame.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        try {
+            double n1 = Double.parseDouble(tf1.getText());
+            double n2 = Double.parseDouble(tf2.getText());
+            double res = 0;
+
+            if (ae.getSource() == btnAdd) res = n1 + n2;
+            else if (ae.getSource() == btnSub) res = n1 - n2;
+            else if (ae.getSource() == btnMul) res = n1 * n2;
+            else if (ae.getSource() == btnDiv) res = n1 / n2;
+
+            lResult.setText("Result: " + res);
+        } catch (Exception e) {
+            lResult.setText("Invalid Input");
+        }
+        
+        tf1.setText("");
+        tf2.setText("");
+    }
+
+    public static void main(String[] args) {
+        new Prog3();
+    }
+}
